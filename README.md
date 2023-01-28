@@ -1,0 +1,1 @@
+# azurevm-config-adirectory
