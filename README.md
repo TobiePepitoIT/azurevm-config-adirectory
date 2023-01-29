@@ -15,7 +15,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
+- Windows 10 Pro (21H2)
 
 
 <h2>Deployment and Configuration Steps</h2>
@@ -28,21 +28,21 @@ In this lab, we will create two VMs in the same VNET. One will be a Domain Contr
 <br />
 
 <p>
-<img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/d22FHIm.png" height="80%" width="80%" alt="Infrastructure"/>
 </p>
 <p>
-DC-1 must have a static Private IP Address. Client one will connect to DC-1 to ensure connectivity we will try to ping DC-1 from Client-1. At first, the ping will not work correctly. We must enable ICMPv4 on the firewall on DC-1. Now we can ping DC-1 successfully from Client-1
+The domain controller must have a static Private IP Address. Client will connect to the DC to ensure connectivity, we will try to ping the DC from the client. At first, the ping will not work correctly but we have to enable ICMPv4 in the DC's firewall. So now we can ping the DC successfully from the client.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/HvZBWzc.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/HvZBWzc.png" height="60%" width="60%" alt="Advanced firewall"/>
 </p>
-<img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/1lrrGPw.png" height="60%" width="60%" alt="CMD ping"/>
 <p>
-Now we will log back into DC-1 to install AD Users & Computers. Promote the VM to DC, set up a new forest as "mydomain.com", restart then log back into DC-1 as user: "mydomain.com\labuser". If you performed the steps properly you should be able to run AD Users & Computers as shown below.
+Now we will log back into the DC to install AD Users & Computers. Promote the VM to DC, set up a new forest as "mydomain.com", restart then log back into the DC as user: "mydomain.com\labuser". If you performed the steps properly you should be able to run AD Users & Computers as shown below.
 </p>
-<img src="https://i.imgur.com/cGjvRke.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/cGjvRke.png" height="80%" width="80%" alt="AD users & computers GUI"/>
 <br />
 </p>
 Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that right click on the domain area. Select new->Organizational Unit and fill out the field. Then click inside of your OU and right click, select new and select user, and fill out the information for your new user. The user should be named Jane Doe, she is going to be an Admin so her username will be Jane_admin. Lastly, add Jane to the domain admin’s security group. 
