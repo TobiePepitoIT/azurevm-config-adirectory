@@ -47,47 +47,47 @@ Now we will log back into the DC to install AD Users & Computers. Promote the VM
 </p>
 Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that right click on the domain area. Select new->Organizational Unit and fill out the field. Then click inside of your OU and right click, select new and select user, and fill out the information for your new user. The user should be named Jane Doe, she is going to be an Admin so her username will be Jane_admin. Lastly, add Jane to the domain admin’s security group. 
 </p>
-<img src="https://i.imgur.com/hL7g5Y5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/hL7g5Y5.png" height="80%" width="80%" alt="OU creation"/>
 <br />
 </p>
-<img src="https://i.imgur.com/kcgvzdE.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
-From now on you can use Jane_admin as the administrator account. Now we will join Client-1 to the domain (mydomain.com) from the azure portal we will change client-1's DNS settings to the DC's Private IP address. After you do that restart Client-1 from within the Azure portal. Our picture below shows verification that client-1 is on the DC-1 DNS. 
+<img src="https://i.imgur.com/kcgvzdE.png" height="80%" width="80%" alt="OU"/>
+From now on you can use Jane_admin as the administrator account. Now we will join the client to the domain (mydomain.com) from the azure's portal we will change the client's DNS settings to the DC's Private IP address. After you do that restart the client from within the Azure portal. Our picture below verifies that the client has the DC's ip configured in its DNS. 
 </p>
-<img src="https://i.imgur.com/jbrGTXW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/jbrGTXW.png" height="80%" width="80%" alt="client DNS ip of the DC"/>
 <br />
 </p>
-<img src="https://i.imgur.com/kvcm2cY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/kvcm2cY.jpg" height="80%" width="80%" alt="IP config"/>
 </p>
 <p>
 </p>
 <p>
-We must join Client-1 to the domain, to do so, navigate to your system settings and go to about. Off to the right select rename this pc (advanced). From there select change the domain. Enter "mydomain.com" after that enter your credentials from mydomain.com\labuser. Your computer will restart and then client-1 will be a part of mydomain.com
+We must configure the client to join the domain controllers domain, to do so, navigate to your system settings and go to about. Off to the right select rename this pc (advanced). From there select change the domain. Enter "mydomain.com" after that enter your credentials from mydomain.com\labuser. Your computer will restart and then the client will now be part of mydomain.com.
 </p>
 <br />
 <p>
   <p>
-<img src="https://i.imgur.com/Ze0Em5e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Ze0Em5e.png" height="80%" width="80%" alt="Domain"/>
 </p>
 <p>
-Wonderful Client-1 is now a part of the domain. Now we will set up a remote desktop for non-administrative users on Client-1. We must log into Client-1 as an admin and open system properties. Click on "Remote Desktop” and allow "domain users" access to the remote desktop. After completing those steps, you should be able to log into Client-1 as a normal user.
+THe client is now part of the domain. Now we will set up a remote desktop for non-administrative users on the client. We must log into the client VM as an admin and open system properties. Click on "Remote Desktop”, add, and then allow "domain users" access to the remote desktop. After completing these steps, you should be able to log into the client as a non-admin user.
 </p>
 <br />
 
 <p>
   <p>
-<img src="https://i.imgur.com/SApOKiE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/SApOKiE.png" height="80%" width="80%" alt=Rremote desktop for non-admin users"/>
 </p>
 <p>
-Lastly, to verify that normal users can RDP into Client-1 we will use a script to generate thousands of users into the domain. We will input the script in PowerShell, and after the users are created, we will select one and RDP into Client-1.
+Lastly, we will use a script to generate thousands of users into the domain. We will input the script in PowerShell, and after the users are created, we will select at least one user from the generated users to use RDP in the client VM.
 </p>
 <br />
-<img src="https://i.imgur.com/EzWG8ug.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/EzWG8ug.png" height="80%" width="80%" alt="Script"/>
 <p>
 <p>
   <p>
-<img src="https://i.imgur.com/Gkpe68K.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Gkpe68K.png" height="60%" width="60%" alt="Users in the domain in AD"/>
 </p>
-<img src="https://i.imgur.com/n3gMwQV.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/n3gMwQV.png" height="60%" width="60%" alt="log-in to one of the users in the client VM"/>
 <p>
-As you can see the PowerShell script created a user with the username "bab.hubo" We were able to log in to Client-1 with his credentials as a normal user. 
+As you can see the PowerShell script created a user with the username "bab.hubo" We were able to log in to Client with his credentials as a normal user. 
 </p>
