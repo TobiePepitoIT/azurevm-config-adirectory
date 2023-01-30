@@ -42,7 +42,7 @@ The domain controller must have a static Private IP Address. Client will connect
 <p>
 Now we will log back into the DC to install AD Users & Computers. Promote the VM to DC, set up a new forest as "mydomain.com", restart then log back into the DC as user: "mydomain.com\labuser". If you performed the steps properly you should be able to run AD Users & Computers as shown below.
 </p>
-<img src="https://i.imgur.com/cGjvRke.png" height="80%" width="80%" alt="AD users & computers GUI"/>
+<img src="https://i.imgur.com/cGjvRke.png" height="90%" width="90%" alt="AD users & computers GUI"/>
 <br />
 </p>
 Excellent! We can start creating Organizational Units (OU). Let's first create an OU named _EMPLOYEES. Create another OU named _ADMINS. To do that right click on the domain area. Select new->Organizational Unit and fill out the field. Then click inside of your OU and right click, select new and select user, and fill out the information for your new user. The user should be named Jane Doe, she is going to be an Admin so her username will be Jane_admin. Lastly, add Jane to the domain admin’s security group. 
@@ -50,7 +50,7 @@ Excellent! We can start creating Organizational Units (OU). Let's first create a
 <img src="https://i.imgur.com/hL7g5Y5.png" height="80%" width="80%" alt="OU creation"/>
 <br />
 </p>
-<img src="https://i.imgur.com/kcgvzdE.png" height="80%" width="80%" alt="OU"/>
+<img src="https://i.imgur.com/kcgvzdE.png" height="90%" width="90%" alt="OU"/>
 From now on you can use Jane_admin as the administrator account. Now we will join the client to the domain (mydomain.com) from the azure's portal we will change the client's DNS settings to the DC's Private IP address. After you do that restart the client from within the Azure portal. Our picture below verifies that the client has the DC's ip configured in its DNS. 
 </p>
 <img src="https://i.imgur.com/jbrGTXW.png" height="80%" width="80%" alt="client DNS ip of the DC"/>
